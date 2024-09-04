@@ -1,6 +1,7 @@
 # Merge file and rename file with CRC32
 
 ## How to use?
+## Assuming your mkvtoolnix is installed on `C:\Program Files\MKVToolNix`
 
 ### Rename file
 - Place the file inside `input` folder
