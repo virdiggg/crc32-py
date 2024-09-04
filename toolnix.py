@@ -1,6 +1,6 @@
 import os
-import subprocess
 import json
+import subprocess
 
 def load_track_info(video_file):
     # Load the track information using mkvmerge -J (JSON output)
@@ -37,7 +37,7 @@ def construct_mkvmerge_command(video_file, audio_tracks, subtitle_tracks, attach
         command += ["--subtitle-tracks", ",".join(map(str, subtitle_tracks))]
 
     if attachments_tracks:
-        command += ["--attachments", ",".join(map(str, attachments_tracks))]
+        command += ["--attach-file"] + attachments_tracks
 
     command.append(video_file)
 
@@ -52,7 +52,6 @@ def main():
                 continue
 
             print(f"Input file: {file}")
-            # output_directory = "output"
             video_file = os.path.join(os.path.dirname(__file__), input_directory, file)
 
             # Load track information
@@ -64,9 +63,7 @@ def main():
             # Select audio and subtitle tracks
             selected_audio_tracks = select_tracks(audio_tracks, "audio")
             selected_subtitle_tracks = select_tracks(subtitle_tracks, "subtitle")
-            selected_attachments_tracks = []
-            if (attachments_tracks):
-                selected_attachments_tracks = [item['id'] for item in attachments_tracks]
+            selected_attachments_tracks = [track["file"] for track in attachments_tracks]  # Use the file path for attachments
 
             title = input("Enter the title for the video: ")
             output_name = input("Enter the output file name: ")
