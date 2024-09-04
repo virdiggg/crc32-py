@@ -1,6 +1,9 @@
 import os
 import zlib
 import shutil
+from helpers.str import StrHelper
+
+str_helper = StrHelper()
 
 def calculate_crc32(file_path):
     """Calculate the CRC32 checksum for the given file."""
@@ -32,7 +35,7 @@ def rename_and_move_files(input_folder, output_folder):
 
             # Move and rename the file
             shutil.move(original_file_path, new_file_path)
-            print(f"Renamed and moved: {file} -> {new_file_name}")
+            str_helper.prGreen(f"Renamed and moved: {file} -> {new_file_name}")
 
 if __name__ == "__main__":
     root = os.path.dirname(os.path.abspath(__file__))

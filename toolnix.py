@@ -1,6 +1,9 @@
 import os
 import json
 import subprocess
+from helpers.str import StrHelper
+
+str_helper = StrHelper()
 
 def load_track_info(video_file):
     # Load the track information using mkvmerge -J (JSON output)
@@ -18,12 +21,8 @@ def select_tracks(tracks, track_type):
 
     return selected_tracks
 
-def clean_utf8(text):
-    # Encode to bytes, ignoring errors, then decode back to string
-    return text.encode('utf-8', 'ignore').decode('utf-8')
-
 def construct_mkvmerge_command(video_file, audio_tracks, subtitle_tracks, attachments_tracks, title, output_name):
-    output_path = os.path.join("input", f"{clean_utf8(output_name)}.mkv")
+    output_path = os.path.join("input", f"{str_helper.clean_utf8(output_name)}.mkv")
     command = [
         r"C:\Program Files\MKVToolNix\mkvmerge.exe", "-o", output_path,
         "--title", title,
@@ -51,7 +50,7 @@ def main():
             if file == ".gitignore":
                 continue
 
-            print(f"Input file: {file}")
+            str_helper.prGreen(f"Input file: {file}")
             video_file = os.path.join(os.path.dirname(__file__), input_directory, file)
 
             # Load track information
