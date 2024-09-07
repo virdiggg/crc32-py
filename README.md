@@ -1,14 +1,14 @@
-# Merge file and rename file with CRC32
+# Re-merge file and rename file with CRC32
+
+## Assuming your mkvtoolnix is installed on `C:\Program Files\MKVToolNix`
+## Installing python is required
 
 ## How to use?
-## Assuming your mkvtoolnix is installed on `C:\Program Files\MKVToolNix`
 
-### Rename file
+### Rename file with CRC32
 - Place the file inside `input` folder
 - Run `python run.py` in command promp
 
-### Merge file
+### Re-merge file then rename the output file with CRC32
 - Place the file inside `init` folder
 - Run `python toolnix.py` in command promp
-
-## Installing python is required
