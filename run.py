@@ -24,18 +24,21 @@ def rename_and_move_files(input_folder, output_folder):
 
     for root, _, files in os.walk(input_folder):
         for file in files:
-            if file == ".gitignore":
-                continue
+            if not files:
+                str_helper.prRed("The 'input' folder is empty.")
+            else:
+                if file == ".gitignore":
+                    continue
 
-            original_file_path = os.path.join(root, file)
-            file_name, file_ext = os.path.splitext(file)
-            crc32_value = calculate_crc32(original_file_path).upper()
-            new_file_name = f"{file_name} [{crc32_value}]{file_ext}"
-            new_file_path = os.path.join(output_folder, new_file_name)
+                original_file_path = os.path.join(root, file)
+                file_name, file_ext = os.path.splitext(file)
+                crc32_value = calculate_crc32(original_file_path).upper()
+                new_file_name = f"{file_name} [{crc32_value}]{file_ext}"
+                new_file_path = os.path.join(output_folder, new_file_name)
 
-            # Move and rename the file
-            shutil.move(original_file_path, new_file_path)
-            str_helper.prGreen(f"Renamed and moved: {file} -> {new_file_name}")
+                # Move and rename the file
+                shutil.move(original_file_path, new_file_path)
+                str_helper.prGreen(f"Renamed and moved: {file} -> {new_file_name}")
 
 if __name__ == "__main__":
     root = os.path.dirname(os.path.abspath(__file__))
