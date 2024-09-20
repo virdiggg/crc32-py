@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 str_helper = StrHelper()
 load_dotenv()
 
-MKVTOOLNIX = os.getenv('MKVTOOLNIX')
+MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
 
 def load_track_info(video_file):
     # Load the track information using mkvmerge -J (JSON output)
