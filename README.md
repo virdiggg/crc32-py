@@ -1,6 +1,5 @@
 # Re-merge file and rename file with CRC32
 
-## Assuming your mkvtoolnix is installed on `C:\Program Files\MKVToolNix`
 ## Installing python is required
 
 ## How to use?
