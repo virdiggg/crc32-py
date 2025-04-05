@@ -2,7 +2,7 @@
 import os
 import json
 import subprocess
-from str import clean_utf8, color_text
+from helper import clean_utf8, color_text, handle_exit
 
 MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
 INPUT_DIR = "input"
@@ -55,4 +55,7 @@ def main():
     subprocess.run(['python', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rename.py')])
 
 if __name__ == "__main__":
+    import signal
+    signal.signal(signal.SIGINT, handle_exit)
+
     main()

@@ -10,3 +10,8 @@ def color_text(text, color):
         "reset": "\033[0m"
     }
     return f"{colors.get(color, colors['reset'])}{text}{colors['reset']}"
+
+def handle_exit(signal_received, frame):
+    import sys
+    print(color_text("\nExiting...", "green"))
+    sys.exit(0)

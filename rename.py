@@ -1,7 +1,7 @@
 import os
 import zlib
 import shutil
-from str import color_text
+from helper import color_text
 
 INPUT_DIR = "input"
 OUTPUT_DIR = "output"
