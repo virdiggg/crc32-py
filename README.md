@@ -10,8 +10,7 @@ A simple tool to help you:
 
 ```
 ROOT/
-├── input/         # Files to be renamed with CRC32
-├── init/          # Files to be re-merged
+├── input/         # Where you place your files
 ├── output/        # Final output files after renaming
 ├── logs/          # Logs for mkvmerge commands
 ├── toolnix.py     # Re-merge and rename
