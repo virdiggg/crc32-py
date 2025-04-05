@@ -1,13 +1,24 @@
-# toolnix.py
-import os
-import json
-import subprocess
+import os, json, subprocess, logging
+from datetime import datetime
 from helper import clean_utf8, color_text, handle_exit
 
+LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
 INPUT_DIR = "input"
 
 os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), INPUT_DIR), exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+CURRENT_DATE = datetime.now().strftime("%Y-%m-%d")
+LOG_NAME = os.path.join(LOG_DIR, f"log-{CURRENT_DATE}.log")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s — %(levelname)s — %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_NAME, encoding='utf-8'),
+        # logging.StreamHandler()
+    ]
+)
 
 def load_track_info(file):
     result = subprocess.run([MKVTOOLNIX, "-J", file], capture_output=True, text=True)
@@ -40,6 +51,8 @@ def build_mkvmerge_cmd(file, aud, sub, att, title, out_name):
 
     if att: cmd += ["--attach-file"] + att
     cmd.append(file)
+
+    logging.info(f"Command: {' '.join(cmd)}")
     return cmd
 
 def main():

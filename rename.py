@@ -1,6 +1,4 @@
-import os
-import zlib
-import shutil
+import os, zlib, shutil
 from helper import color_text
 
 INPUT_DIR = "input"
