@@ -45,4 +45,5 @@ docs/_build
 .project
 .pydevproject
 
-.env
+*.env
+output/*
