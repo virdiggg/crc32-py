@@ -1840,13 +1840,12 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Crée un fichier joint dans le fichier <span class="productname">Matroska</span><sup>(tm)</sup>. Le type
-                        <span class="abbrev">MIME</span> doit avoir été défini avant que cette option puisse
-                        être utilisée. La différence entre les deux formes est que pendant la
-                        scission les fichiers joints avec <span class="option">--attach-file</span> le sont à
-                        tous les fichiers cibles alors que ceux joints avec
-                        <span class="option">--attach-file-once</span> le sont seulement au premier fichier
-                        créé. Si la scission n'est pas utilisée, alors les deux font la même chose.
+                        Crée un fichier de pièce jointe dans un fichier <span class="productname">Matroska</span><sup>(tm)</sup>. La différence
+                        entre les deux formes est que, pendant la scission, les fichiers attachés
+                        avec <span class="option">--attach-file</span> le sont à tous les fichiers en sortie,
+                        tandis que ceux attachés avec <span class="option">--attach-file-once</span> ne le sont
+                        qu'au premier fichier créé. En l'absence de scission, alors les deux formes
+                        font la même chose..
                         
                      </p>
                      
@@ -1897,7 +1896,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2537">2.7.  Options pouvant être utilisée à chaque fichier source</a><a class="headerlink" href="#d4e2537" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2534">2.7.  Options pouvant être utilisée à chaque fichier source</a><a class="headerlink" href="#d4e2534" title="Link to this heading">#</a></h2>
          
          
          
@@ -2761,7 +2760,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3802">2.8. Options ne s'appliquant qu'aux pistes vidéo</a><a class="headerlink" href="#d4e3802" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3799">2.8. Options ne s'appliquant qu'aux pistes vidéo</a><a class="headerlink" href="#d4e3799" title="Link to this heading">#</a></h2>
          
          
          
@@ -3229,7 +3228,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4577">2.9.  Options ne s'appliquant qu'aux pistes de sous-titres texte</a><a class="headerlink" href="#d4e4577" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4574">2.9.  Options ne s'appliquant qu'aux pistes de sous-titres texte</a><a class="headerlink" href="#d4e4574" title="Link to this heading">#</a></h2>
          
          
          
@@ -3271,7 +3270,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4617">2.10. Autres options</a><a class="headerlink" href="#d4e4617" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4614">2.10. Autres options</a><a class="headerlink" href="#d4e4614" title="Link to this heading">#</a></h2>
          
          
          
@@ -3671,7 +3670,16 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        Pour utiliser le signe <span class="literal">@</span> comme premier caractère de
+                        l'argument d'une option telle que «&nbsp;<span class="literal">--title</span>&nbsp;», il faut
+                        l'échapper avec un second signe <span class="literal">@</span>. Exemple&nbsp;:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4827,7 +4835,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6514">13.5. Notes générales</a><a class="headerlink" href="#d4e6514" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6526">13.5. Notes générales</a><a class="headerlink" href="#d4e6526" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4860,7 +4868,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6579">14.1. Introduction</a><a class="headerlink" href="#d4e6579" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6591">14.1. Introduction</a><a class="headerlink" href="#d4e6591" title="Link to this heading">#</a></h2>
          
          
          
@@ -5206,7 +5214,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e7025">17.1. Format de fichier d'horodatage v1</a><a class="headerlink" href="#d4e7025" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7037">17.1. Format de fichier d'horodatage v1</a><a class="headerlink" href="#d4e7037" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5227,7 +5235,7 @@ suppose 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7049">17.2. Format de fichier d'horodatage v2</a><a class="headerlink" href="#d4e7049" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7061">17.2. Format de fichier d'horodatage v2</a><a class="headerlink" href="#d4e7061" title="Link to this heading">#</a></h2>
          
          
          
@@ -5247,7 +5255,7 @@ suppose 27.930
 80</pre>
          
          
-         <h2><a name="d4e7064">17.3. Format de fichier d'horodatage v3</a><a class="headerlink" href="#d4e7064" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7076">17.3. Format de fichier d'horodatage v3</a><a class="headerlink" href="#d4e7076" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5271,7 +5279,7 @@ blanc, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7082">17.4. Format de fichier d'horodatage v4</a><a class="headerlink" href="#d4e7082" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7094">17.4. Format de fichier d'horodatage v4</a><a class="headerlink" href="#d4e7094" title="Link to this heading">#</a></h2>
          
          
          <p>

@@ -1831,13 +1831,11 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Creëert een bestandsbijlage binnenin het <span class="productname">Matroska</span><sup>(tm)</sup> bestand. Het
-                        <span class="abbrev">MIME</span> type moet ingesteld zijn voordat deze optie gebruikt
-                        kan worden. Het verschil tussen deze twee vormen is, dat tijdens het
-                        splitsen van de bestanden vastgemaakt met <span class="option">--attach-file</span> aan
-                        alle uitvoerbestanden zijn vastgemaakt terwijl degene vastgemaakt met de
-                        <span class="option">--attach-file-once</span> alleen zijn vastgemaakt aan het eerste
-                        bestand. Is splitsen niet gebruikt dan doen beide hetzelfde.
+                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The difference between
+                        the two forms is that during splitting the files attached with
+                        <span class="option">--attach-file</span> are attached to all output files while the
+                        ones attached with <span class="option">--attach-file-once</span> are only attached to
+                        the first file created. If splitting is not used then both do the same.
                         
                      </p>
                      
@@ -1887,7 +1885,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2525">2.7. Opties welke gebruikt kunnen worden voor elk invoer bestand</a><a class="headerlink" href="#d4e2525" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2522">2.7. Opties welke gebruikt kunnen worden voor elk invoer bestand</a><a class="headerlink" href="#d4e2522" title="Link to this heading">#</a></h2>
          
          
          
@@ -2740,7 +2738,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3791">2.8. Opties die alleen op video sporen van toepassing zijn</a><a class="headerlink" href="#d4e3791" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3788">2.8. Opties die alleen op video sporen van toepassing zijn</a><a class="headerlink" href="#d4e3788" title="Link to this heading">#</a></h2>
          
          
          
@@ -3203,7 +3201,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4567">2.9.  Opties alleen geldig voor tekst ondertitel sporen</a><a class="headerlink" href="#d4e4567" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4564">2.9.  Opties alleen geldig voor tekst ondertitel sporen</a><a class="headerlink" href="#d4e4564" title="Link to this heading">#</a></h2>
          
          
          
@@ -3246,7 +3244,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4607">2.10. Andere opties</a><a class="headerlink" href="#d4e4607" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4604">2.10. Andere opties</a><a class="headerlink" href="#d4e4604" title="Link to this heading">#</a></h2>
          
          
          
@@ -3643,7 +3641,16 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4787,7 +4794,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6506">13.5. Algemene opmerkingen</a><a class="headerlink" href="#d4e6506" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6518">13.5. Algemene opmerkingen</a><a class="headerlink" href="#d4e6518" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4821,7 +4828,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6571">14.1. Introductie</a><a class="headerlink" href="#d4e6571" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6583">14.1. Introductie</a><a class="headerlink" href="#d4e6583" title="Link to this heading">#</a></h2>
          
          
          
@@ -5166,7 +5173,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e7017">17.1. Tijd code bestandsformaat v1</a><a class="headerlink" href="#d4e7017" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7029">17.1. Tijd code bestandsformaat v1</a><a class="headerlink" href="#d4e7029" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5186,7 +5193,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7041">17.2. Tijd code bestandsformaat v2</a><a class="headerlink" href="#d4e7041" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7053">17.2. Tijd code bestandsformaat v2</a><a class="headerlink" href="#d4e7053" title="Link to this heading">#</a></h2>
          
          
          
@@ -5206,7 +5213,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7056">17.3. Tijd code bestandsformaat v3</a><a class="headerlink" href="#d4e7056" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7068">17.3. Tijd code bestandsformaat v3</a><a class="headerlink" href="#d4e7068" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5230,7 +5237,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7074">17.4. Tijd code bestandsformaat v4</a><a class="headerlink" href="#d4e7074" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7086">17.4. Tijd code bestandsformaat v4</a><a class="headerlink" href="#d4e7086" title="Link to this heading">#</a></h2>
          
          
          <p>

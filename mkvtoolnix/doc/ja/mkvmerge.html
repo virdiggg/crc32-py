@@ -1599,7 +1599,11 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        <span class="productname">Matroska</span><sup>(tm)</sup>ファイルの内部に添付ファイルを作成します。これらのオプションを使用するには、<span class="abbrev">MIME</span>タイプをこれらのオプションより前に指定しなければなりません。二つのオプションの違いは、出力ファイルを分割する際に、<span class="option">--attach-file</span>では全ての出力ファイルに添付されますが、<span class="option">--attach-file-once</span>では最初に作成されたファイルにしか添付されない点です。分割が使用されない場合、2つは等価です。
+                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The difference between
+                        the two forms is that during splitting the files attached with
+                        <span class="option">--attach-file</span> are attached to all output files while the
+                        ones attached with <span class="option">--attach-file-once</span> are only attached to
+                        the first file created. If splitting is not used then both do the same.
                         
                      </p>
                      
@@ -1648,7 +1652,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2506">2.7. 各入力ファイルに指定できるオプション</a><a class="headerlink" href="#d4e2506" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2503">2.7. 各入力ファイルに指定できるオプション</a><a class="headerlink" href="#d4e2503" title="Link to this heading">#</a></h2>
          
          
          
@@ -2397,7 +2401,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3773">2.8. 映像トラックにのみ適用されるオプション</a><a class="headerlink" href="#d4e3773" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3770">2.8. 映像トラックにのみ適用されるオプション</a><a class="headerlink" href="#d4e3770" title="Link to this heading">#</a></h2>
          
          
          
@@ -2839,7 +2843,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4549">2.9. 文章字幕トラックにのみ適用されるオプション</a><a class="headerlink" href="#d4e4549" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4546">2.9. 文章字幕トラックにのみ適用されるオプション</a><a class="headerlink" href="#d4e4546" title="Link to this heading">#</a></h2>
          
          
          
@@ -2873,7 +2877,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4586">2.10. その他のオプション</a><a class="headerlink" href="#d4e4586" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4583">2.10. その他のオプション</a><a class="headerlink" href="#d4e4583" title="Link to this heading">#</a></h2>
          
          
          
@@ -3219,7 +3223,16 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4179,7 +4192,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6483">13.5. 注意</a><a class="headerlink" href="#d4e6483" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6495">13.5. 注意</a><a class="headerlink" href="#d4e6495" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4198,7 +4211,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6548">14.1. はじめに</a><a class="headerlink" href="#d4e6548" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6560">14.1. はじめに</a><a class="headerlink" href="#d4e6560" title="Link to this heading">#</a></h2>
          
          
          
@@ -4464,7 +4477,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e6983">17.1. 時刻印ファイル形式 v1</a><a class="headerlink" href="#d4e6983" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6995">17.1. 時刻印ファイル形式 v1</a><a class="headerlink" href="#d4e6995" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4478,7 +4491,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7007">17.2. 時刻印ファイル形式 v2</a><a class="headerlink" href="#d4e7007" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7019">17.2. 時刻印ファイル形式 v2</a><a class="headerlink" href="#d4e7019" title="Link to this heading">#</a></h2>
          
          
          
@@ -4493,7 +4506,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7022">17.3. 時刻印ファイル形式 v3</a><a class="headerlink" href="#d4e7022" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7034">17.3. 時刻印ファイル形式 v3</a><a class="headerlink" href="#d4e7034" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4509,7 +4522,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7040">17.4. 時刻印ファイル形式 v4</a><a class="headerlink" href="#d4e7040" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7052">17.4. 時刻印ファイル形式 v4</a><a class="headerlink" href="#d4e7052" title="Link to this heading">#</a></h2>
          
          
          <p>

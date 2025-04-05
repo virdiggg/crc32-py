@@ -18,7 +18,7 @@
             <li><a href="#mkvmerge.option_order">4. Порядок параметрів</a></li>
             <li><a href="#mkvmerge.examples">5. Приклади</a></li>
             <li><a href="#mkvmerge.track_ids">6. ID доріжок</a></li>
-            <li><a href="#mkvmerge.language_handling">7. Language handling</a></li>
+            <li><a href="#mkvmerge.language_handling">7. Робота з мовами</a></li>
             <li><a href="#mkvmerge.text_files_and_charsets">8. Текстові файли та перетворення набору символів</a></li>
             <li><a href="#mkvmerge.option_files">9. Файли параметрів</a></li>
             <li><a href="#mkvmerge.file_linking">10. Зв'язування файлу</a></li>
@@ -430,12 +430,12 @@
                      
                      
                      <p>
-                        The strings <span class="literal">'&lt;FILE_NAME&gt;'</span> and
-                        <span class="literal">'&lt;FILE_NAME_WITH_EXT&gt;'</span> are only filled when
-                        generating chapters for appended files.  They will be replaced by the
-                        appended file's name without respectively with its extension.  Note that
-                        only the file's base name and extension are inserted, not its directory or
-                        drive components.
+                        Рядки <span class="literal">«&lt;FILE_NAME&gt;»</span> та
+                        <span class="literal">«&lt;FILE_NAME_WITH_EXT&gt;»</span> заповнюються тільки при
+                        створенні розділів для доданих файлів. Вони будуть замінені ім'ям файлу, що
+                        додається без вказівки відповідно до його розширення. Зверніть увагу, що
+                        вставляється лише базове ім'я та розширення файлу, а не його каталог або
+                        компоненти диска.
                         
                      </p>
                      
@@ -649,9 +649,10 @@
                      
                      
                      <p>
-                        If this option isn't given, tracks will be sorted by their type first &amp;
-                        the order of their source file second. Video tracks come first followed by
-                        audio &amp; subtitle tracks. Other rarely used track types come last.
+                        Якщо цей параметр не вказано, доріжки будуть відсортовані за їх типом в
+                        першу чергу та по порядку вихідного файлу в другу чергу. Першими йдуть
+                        відеодоріжки, потім аудіодоріжки та доріжки субтитрів. Інші типи доріжок, що
+                        рідко використовуються, йдуть останніми.
                         
                      </p>
                      
@@ -877,8 +878,8 @@
                   <td>
                      
                      <p>
-                        Stops processing after the primary video track ends, discarding any
-                        remaining packets of other tracks.
+                        Припиняє обробку після закінчення основної відеодоріжки, відкидаючи всі інші
+                        пакети інших доріжок.
                         
                      </p>
                      
@@ -1807,13 +1808,12 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Створює вкладений файл всередині файла <span class="productname">Matroska</span><sup>(tm)</sup>. Перш ніж використовувати
-                        цей параметр, потрібно встановити тип <span class="abbrev">MIME</span>. Різниця між
-                        цими двома формами полягає в тому, що під час розділення файли, вкладені за
-                        допомогою <span class="option">--attach-file</span>, приєднуються до всіх вихідних
-                        файлів, а файли, прикріплені за допомогою
-                        <span class="option">--attach-file-once</span>, долучаються лише до першого створеного
-                        файлу. Якщо розділення не використовується, то обидва роблять те саме.
+                        Створює вкладення файлу всередині файлу <span class="productname">Matroska</span><sup>(tm)</sup>. Різниця між двома
+                        формами полягає в тому, що при розбитті файли, прикріплені за допомогою
+                        <span class="option">--attach-file</span>, прикріплюються до всіх вихідних файлів, а
+                        файли, прикріплені за допомогою <span class="option">--attach-file- once</span>,
+                        прикріплюються лише до першого створеного файлу. Якщо поділ не
+                        використовується, то обидва варіанти працюють однаково.
                         
                      </p>
                      
@@ -1864,7 +1864,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2517">2.7. Параметри, що використовуються для кожного вхідного файла</a><a class="headerlink" href="#d4e2517" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2514">2.7. Параметри, що використовуються для кожного вхідного файла</a><a class="headerlink" href="#d4e2514" title="Link to this heading">#</a></h2>
          
          
          
@@ -2170,9 +2170,9 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                      
                      
                      <p>
-                        This behavior is enabled automatically for Matroska files created by the
-                        MakeMKV software. The reason is that MakeMKV uses consecutive numbers (1, 2,
-                        3…) as UIDs instead of generating random ones.
+                        Ця поведінка автоматично включається для файлів Matroska, створених
+                        програмою MakeMKV. Причина у тому, що MakeMKV використовує послідовні числа
+                        (1, 2, 3...) як UID, а чи не створює випадкові.
                         
                      </p>
                      
@@ -2561,12 +2561,12 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Sets the emphasis for the audio track with the track ID
-                        <span class="parameter">TID</span>.  The mode can either be a number
-                        <span class="parameter">n</span> (certain values between <span class="constant">0</span> and
-                        <span class="constant">16</span>) or a symbolic name. All valid numbers &amp;
-                        symbolic names can be listed with the <a href="#mkvmerge.description.list_audio_emphasis">--list-audio-emphasis
-                           option</a>.
+                        Задає акцент звукової доріжки за допомогою ідентифікатора доріжки
+                        <span class="parameter">TID</span>. Режим може бути числом <span class="parameter">n</span>
+                        (визначені значення від <span class="constant">0</span> до <span class="constant">16</span>)
+                        або символьним ім'ям. Всі допустимі номери та символьні імена можна вивести
+                        списком за допомогою <a href="#mkvmerge.description.list_audio_emphasis">параметра
+                           --list-audio-accession</a>.
                         
                      </p>
                      
@@ -2728,7 +2728,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3783">2.8. Параметри, які застосовуються лише до відео доріжок</a><a class="headerlink" href="#d4e3783" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3780">2.8. Параметри, які застосовуються лише до відео доріжок</a><a class="headerlink" href="#d4e3780" title="Link to this heading">#</a></h2>
          
          
          
@@ -3177,12 +3177,12 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Sets the stereo mode for the video track with the track ID
-                        <span class="parameter">TID</span>.  The mode can either be a number
-                        <span class="parameter">n</span> between <span class="constant">0</span> and
-                        <span class="constant">14</span> or a symbolic name. All valid numbers &amp; names
-                        can be listed with the <a href="#mkvmerge.description.list_stereo_modes">--list-stereo-modes
-                           option</a>.
+                        Встановлює стереорежим для відеозйомки за допомогою ідентифікатора доріжки
+                        <span class="parameter">TID</span>. Режим може бути числом <span class="parameter">n</span>
+                        від <span class="constant">0</span> до <span class="constant">14</span> або символьним
+                        ім'ям. Всі допустимі номери та імена можна вивести списком за допомогою
+                        <a href="#mkvmerge.description.list_stereo_modes">параметра
+                           --list-stereo-modes</a>.
                         
                      </p>
                      
@@ -3193,7 +3193,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4559">2.9. Параметри, які застосовуються лише до доріжок текстових субтитрів</a><a class="headerlink" href="#d4e4559" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4556">2.9. Параметри, які застосовуються лише до доріжок текстових субтитрів</a><a class="headerlink" href="#d4e4556" title="Link to this heading">#</a></h2>
          
          
          
@@ -3235,7 +3235,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4599">2.10. Інші налаштування</a><a class="headerlink" href="#d4e4599" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4596">2.10. Інші налаштування</a><a class="headerlink" href="#d4e4596" title="Link to this heading">#</a></h2>
          
          
          
@@ -3363,9 +3363,8 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Lists all valid numbers &amp; their corresponding symbolic names for the
-                        <a href="#mkvmerge.description.audio_emphasis">--audio-emphasis</a>
-                        option.
+                        Виводить список допустимих чисел та їх відповідних символічних імен для
+                        параметра <a href="#mkvmerge.description.audio_emphasis">--audio-emphasis</a>.
                         
                      </p>
                      
@@ -3388,9 +3387,8 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Lists all valid numbers &amp; their corresponding symbolic names for the
-                        <a href="#mkvmerge.description.stereo_mode">--stereo-mode</a>
-                        option.
+                        Виводить список допустимих чисел та їх відповідних символічних імен для
+                        параметра <a href="#mkvmerge.description.audio_emphasis">--stereo-mode</a>.
                         
                      </p>
                      
@@ -3635,7 +3633,16 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4117,62 +4124,64 @@ Track ID 1: audio (A_MPEG/L3)</pre>
          </p>
          
          
-         <h1><a name="mkvmerge.language_handling">7. Language handling</a><a class="headerlink" href="#mkvmerge.language_handling" title="Link to this heading">#</a></h1>
+         <h1><a name="mkvmerge.language_handling">7. Робота з мовами</a><a class="headerlink" href="#mkvmerge.language_handling" title="Link to this heading">#</a></h1>
          
          
          
          <p>
-            <span class="productname">Matroska</span><sup>(tm)</sup> has support for two different types of language elements: the
-            old, deprecated "Language" element containing ISO 639-2 alpha 3 codes and
-            the new "LanguageIETF" tags containing IETF BCP 47 language tags. All of
-            <span class="productname">mkvmerge</span>(1)'s options that accept a language accept a BCP 47 language
-            tag. <span class="productname">mkvmerge</span>(1) will derive the value for the deprecated "Language" element
-            from the BCP 47 language tags wherever possible.
+            <span class="productname">Matroska</span><sup>(tm)</sup> підтримує два різних типи мовних елементів: старий, застарілий
+            елемент «Language», що містить коди ISO 639-2 alpha 3, та нові теги
+            «LanguageIETF», що містять мовні теги IETF BCP 47. Всі параметри <span class="productname">mkvmerge</span>(1),
+            які приймають мову, приймають мовний тег BCP 47. <span class="productname">mkvmerge</span>(1) буде виводити
+            значення для застарілого елемента Language з мовних тегів BCP 47, де це
+            можливо.
             
          </p>
          
          
          <p>
-            When identifying a file in JSON mode, existing "LanguageIETF" track header
-            elements will be output as the <span class="literal">language_ietf</span> track
-            property.
+            При ідентифікації файлу в режимі JSON існуючі елементи заголовка доріжки
+            «LanguageIETF» будуть виведені як властивість доріжки
+            <span class="literal">language_ietf</span>.
             
          </p>
          
          
          <p>
-            When writing a file <span class="productname">mkvmerge</span>(1) will always write the "LanguageIETF",
-            "ChapLanguageIETF" and "TagLanguageIETF" elements (the latter two only if
-            chapters or tags are written respectively). In addition to those elements
-            the corresponding old elements will be written; they'll be set to the ISO
-            639-2 code portion of the BCP 47 language tag. For example, when the track
-            language is set to <span class="literal">sr-Cyrl-RS</span> "LanguageIETF" will be set
-            to <span class="literal">sr-Cyrl-RS</span> and the old "Language" element will be set
-            to <span class="literal">srp</span>.
+            Під час запису файлу <span class="productname">mkvmerge</span>(1) завжди записуватиме елементи «LanguageIETF»,
+            «ChapLanguageIETF» та «TagLanguageIETF» (останні два лише у разі запису
+            розділів або тегів відповідно). Крім цих елементів будуть записані
+            відповідні старі елементи; вони будуть встановлені на частину коду ISO 639-2
+            мовного тега BCP 47. Наприклад, коли мова доріжки встановлена ​​на
+            <span class="literal">sr-Cyrl-RS</span>, «LanguageIETF» буде встановлена ​​на
+            <span class="literal">sr-Cyrl-RS</span>, а старий елемент "Language" буде встановлений
+            на <span class="literal">srp</span>.
             
          </p>
          
          
          <p>
-            When reading existing files (Matroska files, XML chapter or tag files etc.)
-            that already contain "…LanguageIETF" elements the existing elements will be
-            kept. Otherwise "…LanguageIETF" elements will be added based on command-line
-            options and other existing deprecated "…Language" elements.
+            При читанні існуючих файлів (файли Matroska, файли глав або тегів XML тощо),
+            які вже містять елементи «...LanguageIETF"», існуючі елементи будуть
+            збережені. В іншому випадку елементи ««..LanguageIETF» будуть додані. на
+            основі параметрів командного рядка та інших застарілих елементів
+            «...Language».
             
          </p>
          
          
          <p>
-            The creation of the new elements can be disabled completely with the
-            command-line option <span class="option">--disable-language-ietf</span> which operates
-            on all three new elements.
+            Створення нових елементів можна повністю відключити за допомогою командного
+            рядка <span class="option">--disable-language-ietf</span>, який діє на всі три нові
+            елементи.
             
          </p>
          
          
          <p>
-            You can chose the normalization method applied to extended language sub-tags
-            with the parameter <a href="#mkvmerge.description.normalize_language_ietf">--normalize-language-ietf</a>.
+            За допомогою параметра <a href="#mkvmerge.description.normalize_language_ietf">--normalize-language-ietf</a>
+            можна вибрати метод нормалізації, що застосовується до розширених мовних
+            підтегів.
             
          </p>
          
@@ -4610,10 +4619,10 @@ CHAPTER03=00:02:42.300
 CHAPTER03NAME=Baby rocks the house</pre>
          
          <p>
-            <span class="productname">mkvmerge</span>(1) will transform every pair or lines into one <span class="productname">Matroska</span><sup>(tm)</sup>
-            <span class="classname">ChapterAtom</span>. It does not set any
-            <span class="classname">ChapterTrackNumber</span> which means that all chapters
-            apply to all tracks in the file.
+            <span class="productname">mkvmerge</span>(1) перетворює кожну пару або рядки на один
+            <span class="classname">ChapterAtom</span> <span class="productname">Matroska</span><sup>(tm)</sup>. Він не встановлює будь-який
+            <span class="classname">ChapterTrackNumbe</span>, що означає, що всі розділи
+            застосовуються до всіх записів у файлі.
             
          </p>
          
@@ -4768,7 +4777,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6492">13.5. Загальні примітки</a><a class="headerlink" href="#d4e6492" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6504">13.5. Загальні примітки</a><a class="headerlink" href="#d4e6504" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4800,7 +4809,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6557">14.1. Вступ</a><a class="headerlink" href="#d4e6557" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6569">14.1. Вступ</a><a class="headerlink" href="#d4e6569" title="Link to this heading">#</a></h2>
          
          
          
@@ -5138,7 +5147,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e7000">17.1. Формат файлу мітки часу версії 1</a><a class="headerlink" href="#d4e7000" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7012">17.1. Формат файлу мітки часу версії 1</a><a class="headerlink" href="#d4e7012" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5158,7 +5167,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7024">17.2. Формат файлу мітки часу версії 2</a><a class="headerlink" href="#d4e7024" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7036">17.2. Формат файлу мітки часу версії 2</a><a class="headerlink" href="#d4e7036" title="Link to this heading">#</a></h2>
          
          
          
@@ -5178,7 +5187,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7039">17.3. Формат файлу мітки часу версії 3</a><a class="headerlink" href="#d4e7039" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7051">17.3. Формат файлу мітки часу версії 3</a><a class="headerlink" href="#d4e7051" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5202,7 +5211,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7057">17.4. Формат файлу мітки часу версії 4</a><a class="headerlink" href="#d4e7057" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7069">17.4. Формат файлу мітки часу версії 4</a><a class="headerlink" href="#d4e7069" title="Link to this heading">#</a></h2>
          
          
          <p>

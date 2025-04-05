@@ -1584,9 +1584,11 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        在 <span class="productname">Matroska</span><sup>(tm)</sup> 文件中创建文件附件。<span class="abbrev">MIME</span> 类型必须在使用此选项之前设定。两种形式的不同之处在于使用
-                        <span class="option">--attach-file</span> 附加的文件在切割过程中将被附加到所有输出文件中，而使用
-                        <span class="option">--attach-file-once</span> 附加的文件只被附加到创建的首个文件中。如果未使用切割功能，两种形式效果相同。
+                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The difference between
+                        the two forms is that during splitting the files attached with
+                        <span class="option">--attach-file</span> are attached to all output files while the
+                        ones attached with <span class="option">--attach-file-once</span> are only attached to
+                        the first file created. If splitting is not used then both do the same.
                         
                      </p>
                      
@@ -1630,7 +1632,7 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2526">2.7. 用于各输入文件的选项</a><a class="headerlink" href="#d4e2526" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2523">2.7. 用于各输入文件的选项</a><a class="headerlink" href="#d4e2523" title="Link to this heading">#</a></h2>
          
          
          
@@ -2373,7 +2375,7 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3793">2.8. 仅用于视频轨的选项</a><a class="headerlink" href="#d4e3793" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3790">2.8. 仅用于视频轨的选项</a><a class="headerlink" href="#d4e3790" title="Link to this heading">#</a></h2>
          
          
          
@@ -2800,7 +2802,7 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4570">2.9. 仅适用于文本字幕轨道的选项</a><a class="headerlink" href="#d4e4570" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4567">2.9. 仅适用于文本字幕轨道的选项</a><a class="headerlink" href="#d4e4567" title="Link to this heading">#</a></h2>
          
          
          
@@ -2837,7 +2839,7 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4610">2.10. 其他选项</a><a class="headerlink" href="#d4e4610" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4607">2.10. 其他选项</a><a class="headerlink" href="#d4e4607" title="Link to this heading">#</a></h2>
          
          
          
@@ -3188,7 +3190,16 @@ $ mkvmerge -o 输出.mkv '(' 文件.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4173,7 +4184,7 @@ CHAPTER03NAME=宝宝摇屋子</pre>
          
          
          
-         <h2><a name="d4e6509">13.5. 一般性备注</a><a class="headerlink" href="#d4e6509" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6521">13.5. 一般性备注</a><a class="headerlink" href="#d4e6521" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4197,7 +4208,7 @@ CHAPTER03NAME=宝宝摇屋子</pre>
          
          
          
-         <h2><a name="d4e6574">14.1. 介绍</a><a class="headerlink" href="#d4e6574" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6586">14.1. 介绍</a><a class="headerlink" href="#d4e6586" title="Link to this heading">#</a></h2>
          
          
          
@@ -4486,7 +4497,7 @@ CHAPTER03NAME=宝宝摇屋子</pre>
          </p>
          
          
-         <h2><a name="d4e7020">17.1. 时间戳文件格式 v1</a><a class="headerlink" href="#d4e7020" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7032">17.1. 时间戳文件格式 v1</a><a class="headerlink" href="#d4e7032" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4502,7 +4513,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7044">17.2. 时间戳文件格式 v2</a><a class="headerlink" href="#d4e7044" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7056">17.2. 时间戳文件格式 v2</a><a class="headerlink" href="#d4e7056" title="Link to this heading">#</a></h2>
          
          
          
@@ -4518,7 +4529,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7059">17.3. 时间戳文件格式 v3</a><a class="headerlink" href="#d4e7059" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7071">17.3. 时间戳文件格式 v3</a><a class="headerlink" href="#d4e7071" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4536,7 +4547,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7077">17.4. 时间戳文件格式 v4</a><a class="headerlink" href="#d4e7077" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7089">17.4. 时间戳文件格式 v4</a><a class="headerlink" href="#d4e7089" title="Link to this heading">#</a></h2>
          
          
          <p>

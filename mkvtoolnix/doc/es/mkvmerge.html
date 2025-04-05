@@ -1861,13 +1861,12 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
                   <td>
                      
                      <p>
-                        Crea un archivo adjunto dentro del archivo <span class="productname">Matroska</span><sup>(tm)</sup>. El tipo
-                        <span class="abbrev">MIME</span> debe establecerse antes de que esta opción pueda ser
-                        utilizada. La diferencia entre las dos formas es que durante la división los
-                        archivos adjuntos con <span class="option">--attach-file</span> son adjuntados a todos
-                        los archivos de salida mientras que con <span class="option">--attach-file-once</span>
-                        tan sólo se adjuntan al primer archivo creado. Si no se usa la división
-                        entonces ambas opciones hacen lo mismo. 
+                        Crea un archivo adjunto dentro del archivo <span class="productname">Matroska</span><sup>(tm)</sup>. La diferencia entre
+                        las dos formas es que durante la división, los archivos adjuntos con
+                        <span class="option">--adjuntar-archivos</span> se adjuntan a todos los archivos de
+                        salida, mientras que los adjuntos con
+                        <span class="option">--adjuntar-archivo-una-vez</span> solo se adjuntan al primer
+                        archivo creado. Si no se usa la división, ambas formas hacen lo mismo.
                         
                      </p>
                      
@@ -1918,7 +1917,7 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
          
          
          
-         <h2><a name="d4e2525">2.7. Opciones que se pueden usar para cada archivo de entrada</a><a class="headerlink" href="#d4e2525" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2522">2.7. Opciones que se pueden usar para cada archivo de entrada</a><a class="headerlink" href="#d4e2522" title="Link to this heading">#</a></h2>
          
          
          
@@ -2800,7 +2799,7 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
          
          
          
-         <h2><a name="d4e3790">2.8. Opciones que sólo afectan a pistas de video</a><a class="headerlink" href="#d4e3790" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3787">2.8. Opciones que sólo afectan a pistas de video</a><a class="headerlink" href="#d4e3787" title="Link to this heading">#</a></h2>
          
          
          
@@ -3269,7 +3268,7 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
          
          
          
-         <h2><a name="d4e4558">2.9. Opciones que sólo afectan a pistas de subtítulos</a><a class="headerlink" href="#d4e4558" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4555">2.9. Opciones que sólo afectan a pistas de subtítulos</a><a class="headerlink" href="#d4e4555" title="Link to this heading">#</a></h2>
          
          
          
@@ -3313,7 +3312,7 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
          
          
          
-         <h2><a name="d4e4601">2.10. Otras opciones</a><a class="headerlink" href="#d4e4601" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4598">2.10. Otras opciones</a><a class="headerlink" href="#d4e4598" title="Link to this heading">#</a></h2>
          
          
          
@@ -3719,7 +3718,16 @@ mkvmerge -o salida.mkv "(" archivo.mkv ")"</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        Si desea usar el signo <span class="literal">@</span> como primer carácter en el
+                        argumento de una opción como '<span class="literal">--title</span>', tienes que
+                        escapar de él con un segundo signo <span class="literal">@</span>. Ejemplo:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4868,7 +4876,7 @@ CHAPTER03NAME=El niño sacude la casa</pre>
          
          
          
-         <h2><a name="d4e6478">13.5. Notas generales</a><a class="headerlink" href="#d4e6478" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6490">13.5. Notas generales</a><a class="headerlink" href="#d4e6490" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4900,7 +4908,7 @@ CHAPTER03NAME=El niño sacude la casa</pre>
          
          
          
-         <h2><a name="d4e6546">14.1. Introducción</a><a class="headerlink" href="#d4e6546" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6558">14.1. Introducción</a><a class="headerlink" href="#d4e6558" title="Link to this heading">#</a></h2>
          
          
          
@@ -5247,7 +5255,7 @@ CHAPTER03NAME=El niño sacude la casa</pre>
          </p>
          
          
-         <h2><a name="d4e6977">17.1. Formato de archivo de código de tiempo v1</a><a class="headerlink" href="#d4e6977" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6989">17.1. Formato de archivo de código de tiempo v1</a><a class="headerlink" href="#d4e6989" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5268,7 +5276,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7001">17.2. Formato de archivo de código de tiempo v2</a><a class="headerlink" href="#d4e7001" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7013">17.2. Formato de archivo de código de tiempo v2</a><a class="headerlink" href="#d4e7013" title="Link to this heading">#</a></h2>
          
          
          
@@ -5288,7 +5296,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7016">17.3. Formato de archivo de código de tiempo v3</a><a class="headerlink" href="#d4e7016" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7028">17.3. Formato de archivo de código de tiempo v3</a><a class="headerlink" href="#d4e7028" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5312,7 +5320,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7034">17.4. Formato de archivo de código de tiempo v4</a><a class="headerlink" href="#d4e7034" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7046">17.4. Formato de archivo de código de tiempo v4</a><a class="headerlink" href="#d4e7046" title="Link to this heading">#</a></h2>
          
          
          <p>

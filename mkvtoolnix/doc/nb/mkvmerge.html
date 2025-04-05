@@ -1796,12 +1796,12 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Oppretter et filvedlegg inne i <span class="productname">Matroska</span><sup>(tm)</sup>-filen. <span class="abbrev">MIME</span>-typen
-                        må ha blitt angitt før dette alternativet kan brukes. Forskjellen mellom de
-                        to formene er at under splitting blir filene vedlagt med
-                        <span class="option">--attach-file</span> vedlagt alle utdatafiler, mens de vedlagt med
-                        <span class="option">--attach-file-once</span> bare legges til den første filen som
-                        opprettes. Hvis splitting ikke brukes, gjør begge det samme.
+                        Oppretter et filvedlegg i <span class="productname">Matroska</span><sup>(tm)</sup>-filen. Forskjellen mellom de to
+                        skjemaene er at under splitting av filene som er vedlagt med
+                        <span class="option">--attach-file</span> er knyttet til alle utdatafiler mens de som
+                        er vedlagt med <span class="option">--attach-file-once</span> bare er knyttet til den
+                        første filen som opprettes. Hvis splitting ikke brukes, gjør begge det
+                        samme.
                         
                      </p>
                      
@@ -1851,7 +1851,7 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2523">2.7. Alternativer som kan brukes for hver inndatafil</a><a class="headerlink" href="#d4e2523" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2520">2.7. Alternativer som kan brukes for hver inndatafil</a><a class="headerlink" href="#d4e2520" title="Link to this heading">#</a></h2>
          
          
          
@@ -2686,7 +2686,7 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3782">2.8. Alternativer som bare gjelder for videospor</a><a class="headerlink" href="#d4e3782" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3779">2.8. Alternativer som bare gjelder for videospor</a><a class="headerlink" href="#d4e3779" title="Link to this heading">#</a></h2>
          
          
          
@@ -3148,7 +3148,7 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4558">2.9.  Alternativer som bare gjelder for tekst-undertekstspor</a><a class="headerlink" href="#d4e4558" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4555">2.9.  Alternativer som bare gjelder for tekst-undertekstspor</a><a class="headerlink" href="#d4e4555" title="Link to this heading">#</a></h2>
          
          
          
@@ -3188,7 +3188,7 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4598">2.10. Andre alternativer</a><a class="headerlink" href="#d4e4598" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4595">2.10. Andre alternativer</a><a class="headerlink" href="#d4e4595" title="Link to this heading">#</a></h2>
          
          
          
@@ -3581,7 +3581,16 @@ $ mkvmerge -o ut.mkv '(' fil.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        Hvis du vil bruke <span class="literal">@</span>-tegnet som det første tegnet i
+                        argumentet til et alternativ som '<span class="literal">--tittel</span>', må du
+                        maskere det med et andre <span class="literal">@</span>-tegn. Eksempel:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4704,7 +4713,7 @@ CHAPTER03NAME=Baby rocker huset</pre>
          
          
          
-         <h2><a name="d4e6491">13.5. Generelle merknader</a><a class="headerlink" href="#d4e6491" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6503">13.5. Generelle merknader</a><a class="headerlink" href="#d4e6503" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4736,7 +4745,7 @@ CHAPTER03NAME=Baby rocker huset</pre>
          
          
          
-         <h2><a name="d4e6556">14.1. Introduksjon</a><a class="headerlink" href="#d4e6556" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6568">14.1. Introduksjon</a><a class="headerlink" href="#d4e6568" title="Link to this heading">#</a></h2>
          
          
          
@@ -5071,7 +5080,7 @@ CHAPTER03NAME=Baby rocker huset</pre>
          </p>
          
          
-         <h2><a name="d4e7002">17.1. Tidsstempel filformat v1</a><a class="headerlink" href="#d4e7002" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7014">17.1. Tidsstempel filformat v1</a><a class="headerlink" href="#d4e7014" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5090,7 +5099,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7023">17.2. Tidsstempel filformat v2</a><a class="headerlink" href="#d4e7023" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7035">17.2. Tidsstempel filformat v2</a><a class="headerlink" href="#d4e7035" title="Link to this heading">#</a></h2>
          
          
          
@@ -5109,7 +5118,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7038">17.3. Tidsstempel filformat v3</a><a class="headerlink" href="#d4e7038" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7050">17.3. Tidsstempel filformat v3</a><a class="headerlink" href="#d4e7050" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5131,7 +5140,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7056">17.4. Tidsstempel filformat v4</a><a class="headerlink" href="#d4e7056" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7068">17.4. Tidsstempel filformat v4</a><a class="headerlink" href="#d4e7068" title="Link to this heading">#</a></h2>
          
          
          <p>

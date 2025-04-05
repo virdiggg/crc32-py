@@ -1804,13 +1804,12 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Стварае далучэнне ўнутры файла <span class="productname">Matroska</span><sup>(tm)</sup>. Перад выкарыстаннем гэтага
-                        параметра неабходна задаць тып <span class="abbrev">MIME</span>. Розніца між гэтымі
-                        дзвюма формамі заключаецца ў тым, што пры падзеле файлы, далучаныя праз
-                        <span class="option">--attach-file</span>, далучаюцца да ўсіх зыходных файлаў, а файлы,
-                        далучаныя праз <span class="option">--attach-file-once</span>, далучаюцца толькі да
-                        першага створанага файла. Калі падзел не выкарыстоўваецца, то абодва робяць
-                        адно і тое ж.
+                        Стварае файл-далучэнне ўнутры файла <span class="productname">Matroska</span><sup>(tm)</sup>. Розніца між дзвюма формамі ў
+                        тым, што пры разбіцці файлы, далучаныя праз <span class="option">--attach-file</span>,
+                        далучаюцца да ўсіх выхадных файлаў, а файлы, далучаныя праз
+                        <span class="option">--attach-file-once</span>, далучаюцца толькі да першага створанага
+                        файла. Калі разбіццё не выкарыстоўваецца, абодва варыянты працуюць
+                        аднолькава.
                         
                      </p>
                      
@@ -1859,7 +1858,7 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2522">2.7. Параметры, якія могуць быць выкарыстаныя для кожнага ўваходнага файла</a><a class="headerlink" href="#d4e2522" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2519">2.7. Параметры, якія могуць быць выкарыстаныя для кожнага ўваходнага файла</a><a class="headerlink" href="#d4e2519" title="Link to this heading">#</a></h2>
          
          
          
@@ -2702,7 +2701,7 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3785">2.8. Параметры, якія ўжываюцца толькі для відэатрэкаў</a><a class="headerlink" href="#d4e3785" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3782">2.8. Параметры, якія ўжываюцца толькі для відэатрэкаў</a><a class="headerlink" href="#d4e3782" title="Link to this heading">#</a></h2>
          
          
          
@@ -3164,7 +3163,7 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4561">2.9. Параметры, якія ўжываюцца толькі да тэкставых субцітраў</a><a class="headerlink" href="#d4e4561" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4558">2.9. Параметры, якія ўжываюцца толькі да тэкставых субцітраў</a><a class="headerlink" href="#d4e4558" title="Link to this heading">#</a></h2>
          
          
          
@@ -3205,7 +3204,7 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4601">2.10. Іншыя параметры</a><a class="headerlink" href="#d4e4601" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4598">2.10. Іншыя параметры</a><a class="headerlink" href="#d4e4598" title="Link to this heading">#</a></h2>
          
          
          
@@ -3598,7 +3597,16 @@ $ mkvmerge -o выхад.mkv '(' файл.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4733,7 +4741,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6497">13.5. Агульныя заўвагі</a><a class="headerlink" href="#d4e6497" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6509">13.5. Агульныя заўвагі</a><a class="headerlink" href="#d4e6509" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4764,7 +4772,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6556">14.1. Уводзіны</a><a class="headerlink" href="#d4e6556" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6568">14.1. Уводзіны</a><a class="headerlink" href="#d4e6568" title="Link to this heading">#</a></h2>
          
          
          
@@ -5101,7 +5109,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e6992">17.1. Фармат файла метак часу v1</a><a class="headerlink" href="#d4e6992" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7004">17.1. Фармат файла метак часу v1</a><a class="headerlink" href="#d4e7004" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5121,7 +5129,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7016">17.2. Фармат файла метак часу v2</a><a class="headerlink" href="#d4e7016" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7028">17.2. Фармат файла метак часу v2</a><a class="headerlink" href="#d4e7028" title="Link to this heading">#</a></h2>
          
          
          
@@ -5141,7 +5149,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7031">17.3. Фармат файла метак часу v3</a><a class="headerlink" href="#d4e7031" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7043">17.3. Фармат файла метак часу v3</a><a class="headerlink" href="#d4e7043" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5164,7 +5172,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7049">17.4. Фармат файла метак часу v4</a><a class="headerlink" href="#d4e7049" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7061">17.4. Фармат файла метак часу v4</a><a class="headerlink" href="#d4e7061" title="Link to this heading">#</a></h2>
          
          
          <p>

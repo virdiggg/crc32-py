@@ -47,7 +47,7 @@
          
          <p>
             Эта программа принимает входные данные из нескольких медиафайлов и соединяет
-            их потоки (все или только выбранные) в файл <span class="productname">Matroska</span><sup>(tm)</sup>; смотрите <a href="https://www.matroska.org/">сайт Matroska</a>.
+            их потоки (все или выбранные) в файл <span class="productname">Matroska</span><sup>(tm)</sup>; смотрите <a href="https://www.matroska.org/">сайт Matroska</a>.
             
          </p>
          
@@ -81,7 +81,7 @@
                   <td class="varlistoption"><a name="mkvmerge.description.verbose"><span class="option">-v</span>, <span class="option">--verbose</span></a><a class="headerlink" href="#mkvmerge.description.verbose" title="Link to this option">#</a></td>
                   <td>
                      
-                     <p>Увеличить детализацию.</p>
+                     <p>Повысить детализацию информации.</p>
                      
                   </td>
                </tr>
@@ -909,8 +909,8 @@
                      
                      <p>
                         Разрезает выходной файл по достижению заданного размера или заданного
-                        времени. Обратите внимание, что треки могут быть разделены только
-                        непосредственно перед ключевым кадром. Поэтому точка разделения может быть
+                        времени. Обратите внимание, что дорожки можно разделить только
+                        непосредственно перед ключевым кадром. Поэтому точка разделения может
                         немного не совпадать с тем, что указал пользователь.
                         
                      </p>
@@ -1445,7 +1445,7 @@
                         отформатирован соответствующим образом и вставлен в это место имени
                         файла. Если такого шаблона нет, то перед расширением файла предусматривается
                         шаблон «<span class="code">-%03d</span>»: «<span class="code">-o output.mkv</span>» приведёт к
-                        «<span class="code">output-001.mkv</span>»' и т. д. Если расширения нет, к имени будет
+                        «<span class="code">output-001.mkv</span>» и т. д. Если расширения нет, к имени будет
                         добавлено «<span class="code">-%03d</span>».
                         
                      </p>
@@ -1808,14 +1808,12 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Создаёт вложение внутри файла <span class="productname">Matroska</span><sup>(tm)</sup>. Перед использованием этого
-                        параметра необходимо установить тип <span class="abbrev">MIME</span>. Разница между
-                        этими двумя формами заключается в том, что при разделении файлы, вложенные с
-                        помощью <span class="option">--attach-file</span>, прикрепляются ко всем исходным
-                        файлам, а файлы, прикреплённые с помощью
-                        <span class="option">--attach-file-once</span>, прикрепляются только к первому
-                        созданному файлу. Если разделение не используется, то оба делают одно и то
-                        же.
+                        Создает файл-вложение внутри файла <span class="productname">Matroska</span><sup>(tm)</sup>. Разница между двумя формами
+                        заключается в том, что при разбиении файлы, прикреплённые с помощью
+                        <span class="option">--attach-file</span>, прикрепляются ко всем выходным файлам, а
+                        файлы, прикреплённые с помощью <span class="option">--attach-file-once</span>,
+                        прикрепляются только к первому созданному файлу. Если разделение не
+                        используется, то оба варианта работают одинаково.
                         
                      </p>
                      
@@ -1865,7 +1863,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2513">2.7. Параметры, которые могут быть использованы для каждого входного файла</a><a class="headerlink" href="#d4e2513" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2510">2.7. Параметры, которые можно использовать для каждого входного файла</a><a class="headerlink" href="#d4e2510" title="Link to this heading">#</a></h2>
          
          
          
@@ -2559,8 +2557,8 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
                         Задаёт акцент для звуковой дорожки с помощью идентификатора дорожки
                         <span class="parameter">TID</span>. Режим может быть либо числом
                         <span class="parameter">n</span> (определённые значения от <span class="constant">0</span> до
-                        <span class="constant">16</span>) или символьным именем. Все допустимые номера и
-                        символьные имена могут быть перечислены с помощью <a href="#mkvmerge.description.list_audio_emphasis">параметра
+                        <span class="constant">16</span>) либо символьным именем. Все допустимые номера и
+                        символьные имена можно вывести списком с помощью <a href="#mkvmerge.description.list_audio_emphasis">параметра
                            --list-audio-accession</a>.
                         
                      </p>
@@ -2586,7 +2584,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
                         <span class="abbrev">AC-3</span>, вместо этого представлены как две отдельные дорожки,
                         для которых пользователь может выбрать, какую дорожку копировать. Для
                         <span class="abbrev">DTS</span> такая схема не будет работать, потому что расширения HD
-                        не могут быть декодированы сами по себе – в отличие от данных TrueHD.
+                        нельзя декодировать сами по себе – в отличие от данных TrueHD.
                         
                      </p>
                      
@@ -2725,7 +2723,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3775">2.8. Параметры, применяемые только к видеодорожкам</a><a class="headerlink" href="#d4e3775" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3772">2.8. Параметры, применяемые только к видеодорожкам</a><a class="headerlink" href="#d4e3772" title="Link to this heading">#</a></h2>
          
          
          
@@ -3179,7 +3177,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
                         Устанавливает стереорежим для видеодорожки с помощью идентификатора дорожки
                         <span class="parameter">TID</span>. Режим может быть числом <span class="parameter">n</span>
                         от <span class="constant">0</span> до <span class="constant">14</span> либо символьным
-                        именем. Все допустимые номера и имена могут быть перечислены с помощью <a href="#mkvmerge.description.list_stereo_modes">параметра
+                        именем. Все допустимые номера и имена можно вывести списком с помощью <a href="#mkvmerge.description.list_stereo_modes">параметра
                            --list-stereo-modes</a>.
                         
                      </p>
@@ -3191,7 +3189,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4551">2.9. Параметры, применяющиеся только к текстовым субтитрам</a><a class="headerlink" href="#d4e4551" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4548">2.9. Параметры, применяющиеся только к текстовым субтитрам</a><a class="headerlink" href="#d4e4548" title="Link to this heading">#</a></h2>
          
          
          
@@ -3233,7 +3231,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4591">2.10. Прочие параметры</a><a class="headerlink" href="#d4e4591" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4588">2.10. Прочие параметры</a><a class="headerlink" href="#d4e4588" title="Link to this heading">#</a></h2>
          
          
          
@@ -3629,7 +3627,16 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        Если вы хотите использовать знак <span class="literal">@</span> в качестве первого
+                        символа в аргументе параметра, таком как "<span class="literal">--title</span>", вы
+                        должны отделить его вторым знаком <span class="literal">@</span>. Наример:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -3716,8 +3723,7 @@ $ mkvmerge -o выход.mkv '(' файл.mkv ')'</pre>
          
          
          <p>
-            Порядок ввода параметров важен для некоторых параметров. Варианты делятся на
-            две категории:
+            Порядок ввода важен для некоторых параметров. Они делятся на две категории:
             
          </p>
          
@@ -4003,8 +4009,8 @@ $ mkvmerge -o МВ-полное.mkv Моё-видео-с-аудио.mkv Моё-�
          
          <pre class="screen">$ mkvmerge -i v.mkv
 Файл 'v.mkv': контейнер Matroska
-ID дорожки 0: video (V_MS/VFW/FOURCC, DIV3)
-ID дорожки 1: audio (A_MPEG/L3)</pre>
+ИД дорожки 0: video (V_MS/VFW/FOURCC, DIV3)
+ИД дорожки 1: audio (A_MPEG/L3)</pre>
          
          <p>
             Не путайте идентификаторы дорожек, назначаемых дорожкам во входном файле
@@ -4420,8 +4426,8 @@ ID дорожки 1: audio (A_MPEG/L3)</pre>
          
          
          <p>
-            Командная строка «<span class="command">mkvmerge -o "my file.mkv" -A "a movie.avi"
-               sound.ogg</span>» может быть преобразована в следующий файл параметров
+            Командная строка «<span class="command">mkvmerge -o "мой файл.mkv" -A "фильм.avi"
+               звук.ogg</span>» может быть преобразована в следующий файл параметров
             JSON под названием, например, «<span class="filename">options.json</span>»:
             
          </p>
@@ -4685,7 +4691,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          <p>
             Дистрибутив mkvtoolnix содержит несколько файлов для примера, они
-            расположены в подпапке <span class="filename">doc</span> и могут быть использованы в
+            расположены в подпапке <span class="filename">doc</span>, и  их можно использовать в
             качестве образца.
             
          </p>
@@ -4770,7 +4776,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6488">13.5. Общие замечания</a><a class="headerlink" href="#d4e6488" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6500">13.5. Общие замечания</a><a class="headerlink" href="#d4e6500" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4802,7 +4808,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6553">14.1. Введение</a><a class="headerlink" href="#d4e6553" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6565">14.1. Введение</a><a class="headerlink" href="#d4e6565" title="Link to this heading">#</a></h2>
          
          
          
@@ -4836,7 +4842,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
             главами с помощью элемент тега <span class="classname">Targets</span> <span class="productname">Matroska</span><sup>(tm)</sup> и
             что, UID, используемые для этого связывания, <em>не</em>
             являются идентификаторами дорожек, которые <span class="productname">mkvmerge</span>(1) использует
-            везде. Вместо номеров используются UID ,которые <span class="productname">mkvmerge</span>(1) вычисляет
+            везде. Вместо номеров используются UID, которые <span class="productname">mkvmerge</span>(1) вычисляет
             автоматически (если дорожка взята из формата файла, отличного от <span class="productname">Matroska</span><sup>(tm)</sup>)
             или которые копируются из входного файла, если входной файл дорожки является
             файлом <span class="productname">Matroska</span><sup>(tm)</sup>. Поэтому трудно узнать, какие UID использовать в файле
@@ -4993,7 +4999,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          <p>
             С помощью XML-файла сегментной информации можно задать определённые значения
             в поле заголовка «информация о сегменте» файла <span class="productname">Matroska</span><sup>(tm)</sup>. Все эти значения
-            не могут быть установлены с помощью других параметров командной строки.
+            нельзя задать с помощью других параметров командной строки.
             
          </p>
          
@@ -5140,7 +5146,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e6989">17.1. Формат файла меток времени v1</a><a class="headerlink" href="#d4e6989" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7001">17.1. Формат файла меток времени v1</a><a class="headerlink" href="#d4e7001" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5160,7 +5166,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7013">17.2. Формат файла меток времени v2</a><a class="headerlink" href="#d4e7013" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7025">17.2. Формат файла меток времени v2</a><a class="headerlink" href="#d4e7025" title="Link to this heading">#</a></h2>
          
          
          
@@ -5180,7 +5186,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7028">17.3. Формат файла меток времени v3</a><a class="headerlink" href="#d4e7028" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7040">17.3. Формат файла меток времени v3</a><a class="headerlink" href="#d4e7040" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5204,7 +5210,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7046">17.4. Формат файла меток времени v4</a><a class="headerlink" href="#d4e7046" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7058">17.4. Формат файла меток времени v4</a><a class="headerlink" href="#d4e7058" title="Link to this heading">#</a></h2>
          
          
          <p>

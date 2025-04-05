@@ -1798,13 +1798,11 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The
-                        <span class="abbrev">MIME</span> type must have been set before this option can
-                        used. The difference between the two forms is that during splitting the
-                        files attached with <span class="option">--attach-file</span> are attached to all
-                        output files while the ones attached with
-                        <span class="option">--attach-file-once</span> are only attached to the first file
-                        created.  If splitting is not used then both do the same.
+                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The difference between
+                        the two forms is that during splitting the files attached with
+                        <span class="option">--attach-file</span> are attached to all output files while the
+                        ones attached with <span class="option">--attach-file-once</span> are only attached to
+                        the first file created. If splitting is not used then both do the same.
                         
                      </p>
                      
@@ -1853,7 +1851,7 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2526">2.7. Opcje mogące być użyte dla każdego pliku wejściowego</a><a class="headerlink" href="#d4e2526" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2523">2.7. Opcje mogące być użyte dla każdego pliku wejściowego</a><a class="headerlink" href="#d4e2523" title="Link to this heading">#</a></h2>
          
          
          
@@ -2685,7 +2683,7 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3792">2.8. Opcje mające zastosowanie tylko do ścieżek obrazu</a><a class="headerlink" href="#d4e3792" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3789">2.8. Opcje mające zastosowanie tylko do ścieżek obrazu</a><a class="headerlink" href="#d4e3789" title="Link to this heading">#</a></h2>
          
          
          
@@ -3148,7 +3146,7 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4568">2.9. Opcje mające zastosowanie tylko do ścieżek napisów</a><a class="headerlink" href="#d4e4568" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4565">2.9. Opcje mające zastosowanie tylko do ścieżek napisów</a><a class="headerlink" href="#d4e4565" title="Link to this heading">#</a></h2>
          
          
          
@@ -3189,7 +3187,7 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4608">2.10. Pozostałe opcje</a><a class="headerlink" href="#d4e4608" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4605">2.10. Pozostałe opcje</a><a class="headerlink" href="#d4e4605" title="Link to this heading">#</a></h2>
          
          
          
@@ -3582,7 +3580,16 @@ $ mkvmerge -o wyjściowy.mkv '(' plik.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4705,7 +4712,7 @@ CHAPTER03NAME=Rozdział III</pre>
          
          
          
-         <h2><a name="d4e6508">13.5. Uwagi ogólne</a><a class="headerlink" href="#d4e6508" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6520">13.5. Uwagi ogólne</a><a class="headerlink" href="#d4e6520" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4737,7 +4744,7 @@ CHAPTER03NAME=Rozdział III</pre>
          
          
          
-         <h2><a name="d4e6573">14.1. Wprowadzenie</a><a class="headerlink" href="#d4e6573" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6585">14.1. Wprowadzenie</a><a class="headerlink" href="#d4e6585" title="Link to this heading">#</a></h2>
          
          
          
@@ -5072,7 +5079,7 @@ CHAPTER03NAME=Rozdział III</pre>
          </p>
          
          
-         <h2><a name="d4e7019">17.1. Format kodów czasowych v1</a><a class="headerlink" href="#d4e7019" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7031">17.1. Format kodów czasowych v1</a><a class="headerlink" href="#d4e7031" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5092,7 +5099,7 @@ przykładowo 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7043">17.2. Format kodów czasowych v2</a><a class="headerlink" href="#d4e7043" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7055">17.2. Format kodów czasowych v2</a><a class="headerlink" href="#d4e7055" title="Link to this heading">#</a></h2>
          
          
          
@@ -5111,7 +5118,7 @@ przykładowo 27.930
 80</pre>
          
          
-         <h2><a name="d4e7058">17.3. Format kodów czasowych v3</a><a class="headerlink" href="#d4e7058" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7070">17.3. Format kodów czasowych v3</a><a class="headerlink" href="#d4e7070" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5134,7 +5141,7 @@ przerwa, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7076">17.4. Format kodów czasowych v4</a><a class="headerlink" href="#d4e7076" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7088">17.4. Format kodów czasowych v4</a><a class="headerlink" href="#d4e7088" title="Link to this heading">#</a></h2>
          
          
          <p>

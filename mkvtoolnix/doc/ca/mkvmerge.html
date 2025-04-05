@@ -1846,13 +1846,12 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Crea un fitxer adjunt dins del fitxer <span class="productname">Matroska</span><sup>(tm)</sup>. Abans que es pugui emprar
-                        aquesta opció, s'haurà d'establir el tipus <span class="abbrev">MIME</span>. La
-                        diferència entre les dues formes és que durant la divisió, els fitxers
-                        adjunts amb <span class="option">--attach-file</span> seran adjuntats a tots els
-                        fitxers de sortida mentre que amb <span class="option">--attach-file-once</span> només
-                        s'adjuntaran al primer fitxer creat. Si no s'empra la divisió, llavors les
-                        dues opcions faran el mateix.
+                        Crea un fitxer adjunt dins del fitxer <span class="productname">Matroska</span><sup>(tm)</sup>. La diferència entre les
+                        dues formes és que durant la divisió, els fitxers adjunts amb
+                        <span class="option">--attach-file</span> seran adjuntats a tots els fitxers de sortida
+                        mentre que amb <span class="option">--attach-file-once</span> només s'adjuntaran al
+                        primer fitxer creat. Si no s'empra la divisió, llavors les dues opcions
+                        faran el mateix.
                         
                      </p>
                      
@@ -1903,7 +1902,7 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2542">2.7. Opcions que es poden emprar per a cada fitxer d'entrada</a><a class="headerlink" href="#d4e2542" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2539">2.7. Opcions que es poden emprar per a cada fitxer d'entrada</a><a class="headerlink" href="#d4e2539" title="Link to this heading">#</a></h2>
          
          
          
@@ -2779,7 +2778,7 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3807">2.8. Opcions que només s'apliquen a les pistes de vídeo</a><a class="headerlink" href="#d4e3807" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3804">2.8. Opcions que només s'apliquen a les pistes de vídeo</a><a class="headerlink" href="#d4e3804" title="Link to this heading">#</a></h2>
          
          
          
@@ -3248,7 +3247,7 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4582">2.9. Opcions que només s'apliquen a les pistes de subtítols de text</a><a class="headerlink" href="#d4e4582" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4579">2.9. Opcions que només s'apliquen a les pistes de subtítols de text</a><a class="headerlink" href="#d4e4579" title="Link to this heading">#</a></h2>
          
          
          
@@ -3291,7 +3290,7 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4622">2.10. Altres opcions</a><a class="headerlink" href="#d4e4622" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4619">2.10. Altres opcions</a><a class="headerlink" href="#d4e4619" title="Link to this heading">#</a></h2>
          
          
          
@@ -3693,7 +3692,16 @@ $ mkvmerge -o sortida.mkv '(' fitxer.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        Si voleu utilitzar el signe <span class="literal">@</span> com a primer caràcter de
+                        l'argument d'una opció com ara «<span class="literal">--title</span>», haureu
+                        d'escapar-lo amb un segon signe <span class="literal">@</span>. Exemple:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4840,7 +4848,7 @@ CHAPTER03NAME=El nen fa trontollar la casa</pre>
          
          
          
-         <h2><a name="d4e6520">13.5. Notes generals</a><a class="headerlink" href="#d4e6520" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6532">13.5. Notes generals</a><a class="headerlink" href="#d4e6532" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4872,7 +4880,7 @@ CHAPTER03NAME=El nen fa trontollar la casa</pre>
          
          
          
-         <h2><a name="d4e6585">14.1. Introducció</a><a class="headerlink" href="#d4e6585" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6597">14.1. Introducció</a><a class="headerlink" href="#d4e6597" title="Link to this heading">#</a></h2>
          
          
          
@@ -5220,7 +5228,7 @@ CHAPTER03NAME=El nen fa trontollar la casa</pre>
          </p>
          
          
-         <h2><a name="d4e7031">17.1. Format v1 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7031" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7043">17.1. Format v1 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7043" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5242,7 +5250,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7055">17.2. Format v2 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7055" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7067">17.2. Format v2 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7067" title="Link to this heading">#</a></h2>
          
          
          
@@ -5262,7 +5270,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7070">17.3. Format v3 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7070" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7082">17.3. Format v3 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7082" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5286,7 +5294,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7088">17.4. Format v4 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7088" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7100">17.4. Format v4 per al fitxer del codi de temps</a><a class="headerlink" href="#d4e7100" title="Link to this heading">#</a></h2>
          
          
          <p>

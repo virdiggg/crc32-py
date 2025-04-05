@@ -17,7 +17,7 @@
             <li><a href="#mkvpropedit.description">2. Опис</a></li>
             <li><a href="#mkvpropedit.edit_selectors">3. Селектори редагування</a></li>
             <li><a href="#mkvpropedit.attachment_selectors">4. Селектори вкладеннь</a></li>
-            <li><a href="#mkvpropedit.language_handling">5. Language handling</a></li>
+            <li><a href="#mkvpropedit.language_handling">5. Робота з мовами</a></li>
             <li><a href="#mkvpropedit.examples">6. Приклади</a></li>
             <li><a href="#d4e1657">7. Коди завершення</a></li>
             <li><a href="#mkvinfo.text_files_and_charsets">8. Текстові файли та перетворення набору символів</a></li>
@@ -1048,34 +1048,35 @@
             
          </ol>
          
-         <h1><a name="mkvpropedit.language_handling">5. Language handling</a><a class="headerlink" href="#mkvpropedit.language_handling" title="Link to this heading">#</a></h1>
+         <h1><a name="mkvpropedit.language_handling">5. Робота з мовами</a><a class="headerlink" href="#mkvpropedit.language_handling" title="Link to this heading">#</a></h1>
          
          
          
          <p>
-            <span class="productname">mkvpropedit</span>(1) mostly tries to do the right thing by default. Therefore
-            changes to the <span class="option">language</span> property will cause <span class="productname">mkvpropedit</span>(1)
-            to apply the same change to both the new "LanguageIETF" element as well as
-            the old "Language" element similar to how <a href="mkvmerge.html"><span class="productname">mkvmerge</span>(1)</a> applies the language to
-            both elements. For example, when using <span class="literal">mkvpropedit movie.mkv --edit
-               track:2 --set language=zh-TW</span> the "LanguageIETF" element will be
-            set to <span class="literal">zh-TW</span> and the old "Language" element to
-            <span class="literal">chi</span>.
+            <span class="productname">mkvpropedit</span>(1) переважно намагається робити правильні речі за
+            умовчанням. Тому зміни властивості <span class="option">language</span> змусять
+            <span class="productname">mkvpropedit</span>(1) застосувати таку ж зміну як до нового елемента «LanguageIETF»,
+            так і до старого елемента «Language», подібно до того, як <a href="mkvmerge.html"><span class="productname">mkvmerge</span>(1)</a>
+            застосовує мову до обох елементів. Наприклад, під час використання
+            <span class="literal">mkvpropedit movie.mkv --edit track:2 --set language=zh-TW</span>
+            елемент «LanguageIETF» буде встановлений на <span class="literal">zh-TW</span>, а
+            старий елемент "Language" на <span class="literal">chi</span>.
             
          </p>
          
          
          <p>
-            Additionally there's a new track header property named
-            <span class="option">language-ietf</span> that can be set or removed. Changes to this
-            property only apply to the new "LanguageIETF" track header element. A caveat
-            is that the old "Language" track header element is a mandatory element in
-            Matroska — meaning even if it isn't present in the file it still has an
-            implied value. When the user only sets the <span class="option">language-ietf</span>
-            property but not the <span class="option">language</span> property, <span class="productname">mkvpropedit</span>(1) will
-            therefore add the old "Language" element in certain cases &amp; set it to
-            <span class="literal">und</span> (meaning "undetermined") as the user didn't specify a
-            value for it.
+            Крім того, є нова властивість заголовка доріжки під назвою
+            <span class="option">language-ietf</span>, яку можна встановити або видалити. Зміни
+            цієї властивості застосовуються лише до нового елемента заголовка доріжки
+            "LanguageIETF". Застереження полягає в тому, що старий елемент заголовка
+            доріжки «Language» є обов'язковим елементом у Matroska — це означає, що
+            навіть якщо він відсутній у файлі, він має однакове значення. Коли
+            користувач встановлює лише властивість <span class="option">language-ietf</span>, але
+            не властивість <span class="option">language</span>, <span class="productname">mkvpropedit</span>(1) буде додавати старий
+            елемент "Language" у певних випадках і встановить його в
+            <span class="literal">und</span> (що означає "невизначений"), оскільки користувач не
+            вказав для нього значення.
             
          </p>
          
@@ -1085,14 +1086,15 @@
          </p>
          
          
-         <p>The creation of the new elements can be disabled completely with the
-            command-line option `--disable-language-ietf` which operates on all three
-            new elements.
+         <p>Створення нових елементів може бути повністю відключено за допомогою
+            командного рядка «--disable-language-ietf», який діє на всі три нові
+            елементи.
          </p>
          
          
-         <p>You can chose the normalization method applied to extended language sub-tags
-            with the parameter <span class="option">--normalize-language-ietf</span>.
+         <p>За допомогою параметра <span class="option">--normalize-language-ietf</span> можна
+            вибрати метод нормалізації, який застосовується до розширених мовних
+            підтегів.
          </p>
          
          <h1><a name="mkvpropedit.examples">6. Приклади</a><a class="headerlink" href="#mkvpropedit.examples" title="Link to this heading">#</a></h1>

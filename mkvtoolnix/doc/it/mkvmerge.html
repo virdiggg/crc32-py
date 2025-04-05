@@ -1806,13 +1806,11 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                   <td>
                      
                      <p>
-                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The
-                        <span class="abbrev">MIME</span> type must have been set before this option can
-                        used. The difference between the two forms is that during splitting the
-                        files attached with <span class="option">--attach-file</span> are attached to all
-                        output files while the ones attached with
-                        <span class="option">--attach-file-once</span> are only attached to the first file
-                        created.  If splitting is not used then both do the same.
+                        Creates a file attachment inside the <span class="productname">Matroska</span><sup>(tm)</sup> file. The difference between
+                        the two forms is that during splitting the files attached with
+                        <span class="option">--attach-file</span> are attached to all output files while the
+                        ones attached with <span class="option">--attach-file-once</span> are only attached to
+                        the first file created. If splitting is not used then both do the same.
                         
                      </p>
                      
@@ -1861,7 +1859,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e2524">2.7. Options that can be used for each input file</a><a class="headerlink" href="#d4e2524" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e2521">2.7. Options that can be used for each input file</a><a class="headerlink" href="#d4e2521" title="Link to this heading">#</a></h2>
          
          
          
@@ -2694,7 +2692,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e3790">2.8. Options that only apply to video tracks</a><a class="headerlink" href="#d4e3790" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e3787">2.8. Options that only apply to video tracks</a><a class="headerlink" href="#d4e3787" title="Link to this heading">#</a></h2>
          
          
          
@@ -3155,7 +3153,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4566">2.9. Options that only apply to text subtitle tracks</a><a class="headerlink" href="#d4e4566" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4563">2.9. Options that only apply to text subtitle tracks</a><a class="headerlink" href="#d4e4563" title="Link to this heading">#</a></h2>
          
          
          
@@ -3196,7 +3194,7 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
          
          
          
-         <h2><a name="d4e4606">2.10. Altre opzioni</a><a class="headerlink" href="#d4e4606" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e4603">2.10. Altre opzioni</a><a class="headerlink" href="#d4e4603" title="Link to this heading">#</a></h2>
          
          
          
@@ -3592,7 +3590,16 @@ $ mkvmerge -o out.mkv '(' file.mkv ')'</pre>
                         
                      </p>
                      
-                  </td>
+                     
+                     <p>
+                        If you want to use the <span class="literal">@</span> sign as the first character in
+                        the argument to an option such as '<span class="literal">--title</span>', you have to
+                        escape it with a second <span class="literal">@</span> sign. Example:
+                        
+                     </p>
+                     
+                     <pre class="screen">$ mkvmerge -o midnight-s01e01.mkv --title @@midnight midnight-s01e01.mp4</pre>
+                     </td>
                </tr>
                <tr>
                   <td class="varlistoption"><a name="mkvmerge.description.capabilities"><span class="option">--capabilities</span></a><a class="headerlink" href="#mkvmerge.description.capabilities" title="Link to this option">#</a></td>
@@ -4715,7 +4722,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6507">13.5. General notes</a><a class="headerlink" href="#d4e6507" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6519">13.5. General notes</a><a class="headerlink" href="#d4e6519" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -4747,7 +4754,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          
          
          
-         <h2><a name="d4e6572">14.1. Introduzione</a><a class="headerlink" href="#d4e6572" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e6584">14.1. Introduzione</a><a class="headerlink" href="#d4e6584" title="Link to this heading">#</a></h2>
          
          
          
@@ -5079,7 +5086,7 @@ CHAPTER03NAME=Baby rocks the house</pre>
          </p>
          
          
-         <h2><a name="d4e7018">17.1. Timestamp file format v1</a><a class="headerlink" href="#d4e7018" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7030">17.1. Timestamp file format v1</a><a class="headerlink" href="#d4e7030" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5099,7 +5106,7 @@ assume 27.930
 1500,1700,30</pre>
          
          
-         <h2><a name="d4e7042">17.2. Timestamp file format v2</a><a class="headerlink" href="#d4e7042" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7054">17.2. Timestamp file format v2</a><a class="headerlink" href="#d4e7054" title="Link to this heading">#</a></h2>
          
          
          
@@ -5118,7 +5125,7 @@ assume 27.930
 80</pre>
          
          
-         <h2><a name="d4e7057">17.3. Timestamp file format v3</a><a class="headerlink" href="#d4e7057" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7069">17.3. Timestamp file format v3</a><a class="headerlink" href="#d4e7069" title="Link to this heading">#</a></h2>
          
          
          <p>
@@ -5141,7 +5148,7 @@ gap, 10.050
 2.000,38.236</pre>
          
          
-         <h2><a name="d4e7075">17.4. Timestamp file format v4</a><a class="headerlink" href="#d4e7075" title="Link to this heading">#</a></h2>
+         <h2><a name="d4e7087">17.4. Timestamp file format v4</a><a class="headerlink" href="#d4e7087" title="Link to this heading">#</a></h2>
          
          
          <p>
