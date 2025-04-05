@@ -46,7 +46,9 @@ def main():
         att = [t['file'] for t in info['tracks'] if t['type'] == 'attachments']
 
         title = input(color_text("Enter video title: ", 'green'))
-        out_name = input(color_text("Enter output filename (without extension): ", 'green'))
+        out_name = input(color_text("Enter output filename (without extension) [default: same as title]: ", 'green')).strip()
+        if not out_name:
+            out_name = title
 
         subprocess.run(build_mkvmerge_cmd(path, aud, sub, att, title, out_name))
 
