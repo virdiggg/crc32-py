@@ -1,87 +1,58 @@
+# toolnix.py
 import os
 import json
 import subprocess
-from helpers.str import StrHelper
-from dotenv import load_dotenv
-
-str_helper = StrHelper()
-load_dotenv()
+from str import clean_utf8, color_text
 
 MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
+INPUT_DIR = "input"
 
-def load_track_info(video_file):
-    # Load the track information using mkvmerge -J (JSON output)
-    command = [MKVTOOLNIX, "-J", video_file]
-    result = subprocess.run(command, capture_output=True, text=True)
+os.makedirs(INPUT_DIR, exist_ok=True)
+
+def load_track_info(file):
+    result = subprocess.run([MKVTOOLNIX, "-J", file], capture_output=True, text=True)
     return json.loads(result.stdout)
 
-def select_tracks(tracks, track_type):
-    print(f"\nAvailable {track_type} tracks:")
+def select_tracks(tracks, ttype):
+    print(color_text(f"\nAvailable {ttype} tracks:", 'green'))
     for i, track in enumerate(tracks):
-        print(f"{i + 1}: {track['properties']['language']} ({track.get('properties').get('track_name', 'No Name')})")
+        lang = track['properties'].get('language', 'und')
+        name = track['properties'].get('track_name', 'No Name')
+        print(color_text(f"{i + 1}: {lang} ({name})", 'yellow'))
+    ids = input(color_text(f"Enter the numbers of {ttype} tracks to include (comma-separated): "), 'green')
+    return [tracks[int(i)-1]['id'] for i in ids.split(',') if i.strip().isdigit()]
 
-    choices = input(f"Enter the numbers of the {track_type} tracks to include (comma-separated): ")
-    selected_tracks = [tracks[int(i) - 1]["id"] for i in choices.split(",")]
+def build_mkvmerge_cmd(file, aud, sub, att, title, out_name):
+    out_path = os.path.join(INPUT_DIR, f"{clean_utf8(out_name)}_output.mkv")
+    cmd = [MKVTOOLNIX, "-o", out_path, "--title", title, "--video-tracks", "0"]
 
-    return selected_tracks
-
-def construct_mkvmerge_command(video_file, audio_tracks, subtitle_tracks, attachments_tracks, title, output_name):
-    output_path = os.path.join("input", f"{str_helper.clean_utf8(output_name)}.mkv")
-    command = [
-        MKVTOOLNIX, "-o", output_path,
-        "--title", title,
-        "--video-tracks", "0",  # Assuming the video track is ID 0
-    ]
-
-    if audio_tracks:
-        command += ["--audio-tracks", ",".join(map(str, audio_tracks))]
-
-    if subtitle_tracks:
-        command += ["--subtitle-tracks", ",".join(map(str, subtitle_tracks))]
-
-    if attachments_tracks:
-        command += ["--attach-file"] + attachments_tracks
-
-    command.append(video_file)
-
-    return command
+    if aud: cmd += ["--audio-tracks", ",".join(map(str, aud))]
+    if sub: cmd += ["--subtitle-tracks", ",".join(map(str, sub))]
+    if att: cmd += ["--attach-file"] + att
+    cmd.append(file)
+    return cmd
 
 def main():
-    input_directory = "init"
+    for file in os.listdir(INPUT_DIR):
+        if file == '.gitignore': continue
+        if '_output' in file: continue
 
-    for root, _, files in os.walk(input_directory):
-        if not files:
-            str_helper.prRed("The 'init' folder is empty.")
-        else:
-            for file in files:
-                if file == ".gitignore":
-                    continue
+        path = os.path.join(INPUT_DIR, file)
+        print(color_text(f"Input file: {file}", 'green'))
 
-                str_helper.prGreen(f"Input file: {file}")
-                video_file = os.path.join(os.path.dirname(__file__), input_directory, file)
+        info = load_track_info(path)
+        aud = select_tracks([t for t in info['tracks'] if t['type'] == 'audio'], "audio")
+        sub = select_tracks([t for t in info['tracks'] if t['type'] == 'subtitles'], "subtitle")
+        att = [t['file'] for t in info['tracks'] if t['type'] == 'attachments']
 
-                # Load track information
-                track_info = load_track_info(video_file)
-                audio_tracks = [track for track in track_info["tracks"] if track["type"] == "audio"]
-                subtitle_tracks = [track for track in track_info["tracks"] if track["type"] == "subtitles"]
-                attachments_tracks = [track for track in track_info["tracks"] if track["type"] == "attachments"]
+        title = input(color_text("Enter video title: ", 'green'))
+        out_name = input(color_text("Enter output filename (without extension): ", 'green'))
 
-                # Select audio and subtitle tracks
-                selected_audio_tracks = select_tracks(audio_tracks, "audio")
-                selected_subtitle_tracks = select_tracks(subtitle_tracks, "subtitle")
-                selected_attachments_tracks = [track["file"] for track in attachments_tracks]  # Use the file path for attachments
+        subprocess.run(build_mkvmerge_cmd(path, aud, sub, att, title, out_name))
 
-                title = input("Enter the title for the video: ")
-                output_name = input("Enter the output file name: ")
+        os.remove(path)
 
-                # Construct the mkvmerge command
-                command = construct_mkvmerge_command(video_file, selected_audio_tracks, selected_subtitle_tracks, selected_attachments_tracks, title, output_name)
-
-                # Execute the mkvmerge command
-                subprocess.run(command)
+    subprocess.run(['python', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rename.py')])
 
 if __name__ == "__main__":
     main()
-
-    rename = os.path.join(os.path.dirname(__file__), 'run.py')
-    subprocess.run(['python', rename])
