@@ -19,7 +19,7 @@ def select_tracks(tracks, ttype):
         lang = track['properties'].get('language', 'und')
         name = track['properties'].get('track_name', 'No Name')
         print(color_text(f"{i + 1}: {lang} ({name})", 'yellow'))
-    ids = input(color_text(f"Enter the numbers of {ttype} tracks to include (comma-separated): "), 'green')
+    ids = input(color_text(f"Enter the numbers of {ttype} tracks to include (comma-separated): ", 'green'))
     return [tracks[int(i)-1]['id'] for i in ids.split(',') if i.strip().isdigit()]
 
 def build_mkvmerge_cmd(file, aud, sub, att, title, out_name):
