@@ -25,14 +25,22 @@ def rename_and_move(src_dir, dest_dir):
         print(color_text(f"The '{src_dir}' folder is empty.", 'red'))
         return
 
+    import re
     for file in files:
         src = os.path.join(src_dir, file)
         name, ext = os.path.splitext(file)
-        crc = calculate_crc32(src).upper()
-        new_name = f"{name} [{crc}]{ext}"
+
+        # Check if filename already has a CRC32 pattern at the end like "name [AB12CD34].ext"
+        if re.search(r"\[[0-9A-F]{8}\]$", name, re.IGNORECASE):
+            new_name = file  # Already has CRC32, no change
+        else:
+            crc = calculate_crc32(src).upper()
+            base_name = name.replace('_output', '')
+            new_name = f"{base_name} [{crc}]{ext}"
+
         dest = os.path.join(dest_dir, new_name)
         shutil.move(src, dest)
-        print(color_text(f"Renamed and moved: {file} -> {new_name}", 'green'))
+        print(color_text(f"Moved: {file} -> {new_name}", 'green'))
 
 if __name__ == "__main__":
     rename_and_move(INPUT_DIR, OUTPUT_DIR)
