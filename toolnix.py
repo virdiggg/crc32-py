@@ -26,8 +26,18 @@ def build_mkvmerge_cmd(file, aud, sub, att, title, out_name):
     out_path = os.path.join(INPUT_DIR, f"{clean_utf8(out_name)}_output.mkv")
     cmd = [MKVTOOLNIX, "-o", out_path, "--title", title, "--video-tracks", "0"]
 
-    if aud: cmd += ["--audio-tracks", ",".join(map(str, aud))]
-    if sub: cmd += ["--subtitle-tracks", ",".join(map(str, sub))]
+    default_audio = aud[0] if aud else None
+    if aud:
+        cmd += ["--audio-tracks", ",".join(map(str, aud))]
+        for aid in aud:
+            cmd += ["--default-track", f"{aid}:{'yes' if aid == default_audio else 'no'}"]
+
+    default_sub = sub[0] if sub else None
+    if sub:
+        cmd += ["--subtitle-tracks", ",".join(map(str, sub))]
+        for sid in sub:
+            cmd += ["--default-track", f"{sid}:{'yes' if sid == default_sub else 'no'}"]
+
     if att: cmd += ["--attach-file"] + att
     cmd.append(file)
     return cmd

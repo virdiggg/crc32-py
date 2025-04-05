@@ -34,7 +34,6 @@ def rename_and_move(src_dir, dest_dir):
             new_name = f"{base_name} [{crc}]{ext}"
 
         dest = os.path.join(dest_dir, new_name)
-        print(dest)
         shutil.move(src, dest)
         print(color_text(f"Moved: {file} -> {new_name}", 'green'))
 
