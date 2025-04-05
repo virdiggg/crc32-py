@@ -7,7 +7,7 @@ from helper import clean_utf8, color_text, handle_exit
 MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
 INPUT_DIR = "input"
 
-os.makedirs(INPUT_DIR, exist_ok=True)
+os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), INPUT_DIR), exist_ok=True)
 
 def load_track_info(file):
     result = subprocess.run([MKVTOOLNIX, "-J", file], capture_output=True, text=True)
