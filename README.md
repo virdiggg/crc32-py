@@ -35,7 +35,7 @@ ROOT/
 ---
 
 ### 2. 🎬 Re-Merge File, Then Rename with CRC32
-- Place your `.mkv` file inside the `init/` folder.
+- Place your `.mkv` file inside the `input/` folder.
 - Run:
   ```sh
   python toolnix.py
