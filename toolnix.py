@@ -1,26 +1,12 @@
 import os, json, subprocess, logging, shutil
-from datetime import datetime
 from helper import clean_utf8, color_text, handle_exit
-
-LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
-MKVTOOLNIX = os.path.join('mkvtoolnix', 'mkvmerge.exe')
-INPUT_DIR = "input"
-
-VIDEO_EXTS = (".mkv", ".mp4", ".avi", ".mov", ".ts")
-AUDIO_EXTS = (".flac", ".aac", ".mp3", ".ogg", ".m4a")
-SUB_EXTS   = (".srt", ".ass", ".ssa")
-FONT_EXTS  = (".ttf", ".otf")
-
-os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), INPUT_DIR), exist_ok=True)
-os.makedirs(LOG_DIR, exist_ok=True)
-CURRENT_DATE = datetime.now().strftime("%Y-%m-%d")
-LOG_NAME = os.path.join(LOG_DIR, f"log-{CURRENT_DATE}.log")
+from crc_config import LOG_FILE, MKVTOOLNIX, INPUT_DIR, VIDEO_EXTS, AUDIO_EXTS, SUB_EXTS, FONT_EXTS
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s — %(levelname)s — %(message)s",
+    format="[%(asctime)s] [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(LOG_NAME, encoding='utf-8'),
+        logging.FileHandler(LOG_FILE, encoding='utf-8'),
         # logging.StreamHandler()
     ]
 )
@@ -28,9 +14,11 @@ logging.basicConfig(
 def safe_remove(path):
     try:
         if os.path.isdir(path):
-            shutil.rmtree(path)   # remove folder + contents
+            # remove folder + contents
+            shutil.rmtree(path)
         else:
-            os.remove(path)       # remove file
+            # remove file
+            os.remove(path)
         logging.info(f"Removed: {path}")
     except Exception as e:
         logging.warning(f"Could not remove {path}: {e}")
@@ -73,12 +61,12 @@ def build_mkvmerge_cmd(file, aud, sub, att, title, out_name):
 def main():
     for file in os.listdir(INPUT_DIR):
         # Ignore .gitignore
-        if file == '.gitignore': 
+        if file == '.gitignore':
             continue
 
         # File with "_output" in its name is an output file (done with merging)
         # we don't want to infinitely merge the file
-        if '_output' in file: 
+        if '_output' in file:
             continue
 
         path = os.path.join(INPUT_DIR, file)

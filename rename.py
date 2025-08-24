@@ -1,8 +1,6 @@
 import os, zlib, shutil, re
-from helper import color_text
-
-INPUT_DIR = "input"
-OUTPUT_DIR = "output"
+from helper import color_text, handle_exit
+from crc_config import INPUT_DIR, OUTPUT_DIR
 
 def calculate_crc32(file_path):
     """Calculate the CRC32 checksum for the given file."""
@@ -36,9 +34,7 @@ def rename_and_move(src_dir, dest_dir):
         print(color_text(f"Moved: {file} -> {new_name}", 'green'))
 
 if __name__ == "__main__":
-    input_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), INPUT_DIR)
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), OUTPUT_DIR)
-    os.makedirs(input_dir, exist_ok=True)
-    os.makedirs(output_dir, exist_ok=True)
+    import signal
+    signal.signal(signal.SIGINT, handle_exit)
 
-    rename_and_move(input_dir, output_dir)
+    rename_and_move(INPUT_DIR, OUTPUT_DIR)
