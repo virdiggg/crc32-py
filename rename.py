@@ -1,4 +1,4 @@
-import os, zlib, shutil
+import os, zlib, shutil, re
 from helper import color_text
 
 INPUT_DIR = "input"
@@ -13,12 +13,12 @@ def calculate_crc32(file_path):
     return format(crc32 & 0xFFFFFFFF, '08x')
 
 def rename_and_move(src_dir, dest_dir):
-    files = [f for f in os.listdir(src_dir) if f != '.gitignore']
+    files = [f for f in os.listdir(src_dir) if f != '.gitignore' and os.path.isfile(os.path.join(src_dir, f))]
+
     if not files:
-        print(color_text(f"The '{src_dir}' folder is empty.", 'red'))
+        print(color_text(f"The '{src_dir}' folder is empty (or only contains subfolders).", 'red'))
         return
 
-    import re
     for file in files:
         src = os.path.join(src_dir, file)
         name, ext = os.path.splitext(file)
