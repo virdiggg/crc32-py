@@ -1,6 +1,6 @@
 import os, json, subprocess, logging, shutil
 from helper import clean_utf8, color_text, handle_exit
-from crc_config import LOG_FILE, MKVTOOLNIX, INPUT_DIR, VIDEO_EXTS, AUDIO_EXTS, SUB_EXTS, FONT_EXTS
+from crc_config import ROOT_DIR, LOG_FILE, MKVTOOLNIX, INPUT_DIR, VIDEO_EXTS, AUDIO_EXTS, SUB_EXTS, FONT_EXTS
 
 logging.basicConfig(
     level=logging.INFO,
@@ -76,7 +76,7 @@ def main():
             safe_remove(path)
             continue
 
-        print(color_text(f"Input file: {file}", 'green'))
+        print(color_text(f"Input file: {file}", 'yellow'))
 
         info = load_track_info(path)
         aud = select_tracks([t for t in info['tracks'] if t['type'] == 'audio'], "audio")
@@ -92,7 +92,7 @@ def main():
 
         safe_remove(path)
 
-    subprocess.run(['python', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rename.py')])
+    subprocess.run(['python', os.path.join(ROOT_DIR, 'rename.py')])
 
 def merge_folder(folder):
     files = os.listdir(folder)
