@@ -2,10 +2,12 @@ import os
 from datetime import datetime
 
 ROOT_DIR   = os.path.dirname(os.path.abspath(__file__))
+SCAN_DIR  = os.path.join(ROOT_DIR, "scan")
 INPUT_DIR  = os.path.join(ROOT_DIR, "input")
 OUTPUT_DIR = os.path.join(ROOT_DIR, "output")
 LOG_DIR    = os.path.join(ROOT_DIR, "logs")
 
+os.makedirs(SCAN_DIR, exist_ok=True)
 os.makedirs(INPUT_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)

@@ -1,14 +1,7 @@
-import os, zlib, shutil, re
+import os, shutil, re
 from helper import color_text, handle_exit
 from crc_config import INPUT_DIR, OUTPUT_DIR
-
-def calculate_crc32(file_path):
-    """Calculate the CRC32 checksum for the given file."""
-    crc32 = 0
-    with open(file_path, 'rb') as f:
-        while chunk := f.read(65536):
-            crc32 = zlib.crc32(chunk, crc32)
-    return format(crc32 & 0xFFFFFFFF, '08x')
+from crc32 import calculate_crc32, extract_crc32_from_name
 
 def rename_and_move(src_dir, dest_dir):
     files = [f for f in os.listdir(src_dir) if f != '.gitignore' and os.path.isfile(os.path.join(src_dir, f))]
@@ -20,14 +13,15 @@ def rename_and_move(src_dir, dest_dir):
     for file in files:
         src = os.path.join(src_dir, file)
         name, ext = os.path.splitext(file)
+        file_crc = extract_crc32_from_name(name)
+        calc_crc = calculate_crc32(src).upper()
 
         # Check if filename already has a CRC32 pattern at the end like "name [AB12CD34].ext"
-        if re.search(r"\[[0-9A-F]{8}\]$", name, re.IGNORECASE):
+        if file_crc:
             new_name = file  # Already has CRC32, no change
         else:
-            crc = calculate_crc32(src).upper()
             base_name = name.replace('_output', '')
-            new_name = f"{base_name} [{crc}]{ext}"
+            new_name = f"{base_name} [{calc_crc}]{ext}"
 
         dest = os.path.join(dest_dir, new_name)
         shutil.move(src, dest)
