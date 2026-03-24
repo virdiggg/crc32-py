@@ -1,6 +1,4 @@
-import os
-import time
-import requests
+import os, time, requests
 from dotenv import load_dotenv
 from tqdm import tqdm
 from requests_toolbelt import MultipartEncoder, MultipartEncoderMonitor

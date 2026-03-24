@@ -1,7 +1,10 @@
-import os, shutil, re
+import os, shutil, subprocess
+from dotenv import load_dotenv
 from helper import color_text, handle_exit
-from crc_config import INPUT_DIR, OUTPUT_DIR
+from crc_config import ROOT_DIR, INPUT_DIR, OUTPUT_DIR
 from crc32 import calculate_crc32, extract_crc32_from_name
+
+load_dotenv()
 
 def rename_and_move(src_dir, dest_dir):
     files = [f for f in os.listdir(src_dir) if f != '.gitignore' and os.path.isfile(os.path.join(src_dir, f))]
@@ -32,3 +35,9 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, handle_exit)
 
     rename_and_move(INPUT_DIR, OUTPUT_DIR)
+
+    API_KEY = os.getenv('PIXELDRAIN_API_KEY')
+    WEBHOOK_URL = os.getenv('DISCORD_WEBHOOK_URL')
+
+    if API_KEY and WEBHOOK_URL:
+        subprocess.run(['python', os.path.join(ROOT_DIR, 'pixeldrain.py')])
